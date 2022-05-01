@@ -1,5 +1,6 @@
 import pytest
-from src.calculator import subtract
+from src.service_layer.services import subtract
+from src.domain.exceptions import UnsupportedModelTypeException
 
 def test_subtract_two_integers():
   assert subtract(10, 4) == 6
@@ -17,15 +18,15 @@ def test_subtract_negative_int_and_float():
   assert subtract(-5, 10.5) == -15.5
 
 def test_subtract_int_and_tuple():
-  with pytest.raises(TypeError):
+  with pytest.raises(UnsupportedModelTypeException):
     assert subtract(10,())
 
 def test_subtract_float_and_list():
-  with pytest.raises(TypeError):
+  with pytest.raises(UnsupportedModelTypeException):
     assert subtract(10.0, [])
 
 def test_subtract_float_and_str():
-  with pytest.raises(TypeError):
+  with pytest.raises(UnsupportedModelTypeException):
     assert subtract(10.0, "lovely")
 
 def test_subtract_int_and_float_with_string():
@@ -35,9 +36,9 @@ def test_subtract_int_string_and_zero():
   assert subtract(0, "5") == -5
 
 def test_subtract_int_and_string_conversion():
-  with pytest.raises(TypeError):
+  with pytest.raises(UnsupportedModelTypeException):
     assert subtract("5", "asdasdasda")
 
 def test_subtract_int_and_list_conversion():
-  with pytest.raises(TypeError):
+  with pytest.raises(UnsupportedModelTypeException):
     assert subtract("5", "[]")
