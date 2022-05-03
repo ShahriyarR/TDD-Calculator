@@ -18,5 +18,5 @@ jobs:
       - run: pip install flake8==4.0.1
       - run: pip install black==22.3.0
       - run: pip install isort==5.9.3
-      - run: scripts/lint.sh
+      - run: bash ./scripts/lint.sh
         shell: bash
