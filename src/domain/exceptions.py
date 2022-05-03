@@ -1,5 +1,6 @@
 class ModelException(Exception):
-  pass
+    pass
+
 
 class UnsupportedModelTypeException(ModelException):
-  pass
+    pass

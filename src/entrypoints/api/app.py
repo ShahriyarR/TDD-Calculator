@@ -1,7 +1,9 @@
 from flask import Flask, request
-from src.service_layer.services import add, divide, subtract, multiply
+
+from src.service_layer.services import add, divide, multiply, subtract
 
 app = Flask(__name__)
+
 
 @app.route("/")
 def home():

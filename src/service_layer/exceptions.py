@@ -1,5 +1,6 @@
 class ServiceException(Exception):
-  pass
+    pass
+
 
 class ServiceAttemptZeroDivisionException(ServiceException):
-  pass
+    pass
